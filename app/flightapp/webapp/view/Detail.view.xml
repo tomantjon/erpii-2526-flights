@@ -1,0 +1,13 @@
+<mvc:View controllerName="sap.capire.app.flightapp.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page"
+        title="{i18n>title}">
+
+        <Label text="Welcome to the detail page"></Label>
+
+    </Page>
+</mvc:View>

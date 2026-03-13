@@ -93,15 +93,24 @@
       },
       "routes": [
         {
-          "name": "RouteApp",
-          "pattern": ":?query:",
-          "target": ["TargetApp"]
+          "name": "List",
+          "pattern": "",
+          "target": ["List"]
+        },
+        {
+          "name": "Detail",
+          "pattern": "detail/{param}",
+          "target": ["Detail"]
         }
       ],
       "targets": {
-        "TargetApp": {
-          "id": "App",
-          "name": "App"
+        "List": {
+          "id": "List",
+          "name": "List"
+        },
+        "Detail": {
+          "id": "Detail",
+          "name": "Detail"
         }
       }
     },
