@@ -5,7 +5,28 @@
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core">
     <Page id="page"
-        title="{i18n>title}">
+        title="{i18n>title}"
+        showHeader="true">
+
+        <customHeader>
+            <Bar>
+                <contentRight>
+                    <Button id="edit"
+                        text="Edit"
+                        enabled="false"
+                        press="handleEditPress" />
+                    <Button id="btnSaveFlightDetails"
+                        text="Save"
+                        type="Emphasized"
+                        visible="false"
+                        press="handleSavePress" />
+                    <Button id="cancel"
+                        text="Cancel"
+                        visible="false"
+                        press="handleCancelPress" />
+                </contentRight>
+            </Bar>
+        </customHeader>
 
         <Label text="Welcome to the detail page"></Label>
         <VBox >
