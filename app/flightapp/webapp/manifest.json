@@ -93,22 +93,22 @@
       },
       "routes": [
         {
-          "name": "List",
+          "name": "ListRoute",
           "pattern": "",
-          "target": ["List"]
+          "target": ["ListTarget"]
         },
         {
-          "name": "Detail",
-          "pattern": "detail/{param}",
-          "target": ["Detail"]
+          "name": "DetailRoute",
+          "pattern": "detail",
+          "target": ["DetailTarget"]
         }
       ],
       "targets": {
-        "List": {
+        "ListTarget": {
           "id": "List",
           "name": "List"
         },
-        "Detail": {
+        "DetailTarget": {
           "id": "Detail",
           "name": "Detail"
         }

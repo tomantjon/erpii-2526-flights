@@ -7,10 +7,6 @@
     <Page id="page"
         title="{i18n>title}">
 
-        <Label text="Welcome to my app"></Label>
-        <Button text="Nav To Detail page"
-            press="onNavButtonPressed"></Button>
-
         <f:SimpleForm id="SimpleFormChange354"
             editable="true"
             layout="ResponsiveGridLayout"
