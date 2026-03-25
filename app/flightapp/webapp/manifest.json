@@ -99,7 +99,7 @@
         },
         {
           "name": "DetailRoute",
-          "pattern": "detail",
+          "pattern": "detail?path={flightpath}",
           "target": ["DetailTarget"]
         }
       ],

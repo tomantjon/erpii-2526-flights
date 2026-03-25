@@ -23,6 +23,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap
       this._createFlightV4(oNewData);
     },
 
+    handleListItemPressed: function (oEvent) {
+      let oContext = oEvent.getSource().getBindingContext();
+      let sItemPath = oContext.getPath().substr(1);
+
+      let oRouter = this.getOwnerComponent().getRouter();
+      oRouter.navTo("DetailRoute", { flightpath: sItemPath });
+    },
+
     _createFlightV4: function (oFlight) {
       var oDataListBinding = this.getView().byId("tblFlights").getBinding("items");
 
