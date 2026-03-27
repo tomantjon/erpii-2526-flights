@@ -48,6 +48,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
       this._toggleButtonsAndView(true);
     },
 
+    handleSavePress: function () {
+      this._toggleButtonsAndView(false);
+    },
+
     handleCancelPress: function () {
       //Restore the data
       this.getView().getBindingContext().resetChanges();
