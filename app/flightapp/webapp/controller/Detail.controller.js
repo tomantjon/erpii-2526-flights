@@ -32,5 +32,21 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
         oPage.insertContent(oVBox);
       });
     },
+
+    handleEditPress: function () {
+      this._toggleButtonsAndView(true);
+    },
+
+    _toggleButtonsAndView: function (bEdit) {
+      var oView = this.getView();
+
+      // Show the appropriate action buttons
+      oView.byId("edit").setVisible(!bEdit);
+      oView.byId("btnSaveFlightDetails").setVisible(bEdit);
+      oView.byId("cancel").setVisible(bEdit);
+
+      // Set the right form type
+      this._showFormFragment(bEdit ? "FlightDetailChange" : "FlightDetailDisplay");
+    },
   });
 });
