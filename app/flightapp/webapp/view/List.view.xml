@@ -6,7 +6,6 @@
     xmlns:core="sap.ui.core">
     <Page id="page"
         title="{i18n>title}">
-
         <f:SimpleForm id="SimpleFormChange354"
             editable="true"
             layout="ResponsiveGridLayout"
@@ -43,7 +42,7 @@
                 press="onAddFlight"
                 type="Accept" />
         </f:SimpleForm>
-
+        <SearchField liveChange=".onSearch"/>
         <Table id="tblFlights"
             inset="false"
             items="{
