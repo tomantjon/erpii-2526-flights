@@ -7,6 +7,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
       this.oRouter.getRoute("DetailRoute").attachPatternMatched(this._onRouteMatched, this);
 
       this.byId("edit").setEnabled(true);
+      // Create a collection to store the loaded fragments
+      this._formFragments = {};
       // Set the initial form to be the display one
       this._showFormFragment("FlightDetailDisplay");
     },
@@ -24,17 +26,32 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
       var oPage = this.byId("pgDetail");
       oPage.removeAllContent();
 
-      this.pFormFragment = this.loadFragment({
-        name: "sap.capire.app.flightapp.fragment." + sFragmentName,
-      });
-
-      this.pFormFragment.then(function (oVBox) {
+      this._getFormFragment(sFragmentName).then(function (oVBox) {
         oPage.insertContent(oVBox);
       });
     },
 
+    _getFormFragment: function (sFragmentName) {
+      var pFormFragment = this._formFragments[sFragmentName];
+
+      if (!pFormFragment) {
+        pFormFragment = this.loadFragment({
+          name: "sap.capire.app.flightapp.fragment." + sFragmentName,
+        });
+        this._formFragments[sFragmentName] = pFormFragment;
+      }
+
+      return pFormFragment;
+    },
+
     handleEditPress: function () {
       this._toggleButtonsAndView(true);
+    },
+
+    handleCancelPress: function () {
+      //Restore the data
+      this.getView().getBindingContext().resetChanges();
+      this._toggleButtonsAndView(false);
     },
 
     _toggleButtonsAndView: function (bEdit) {
